@@ -10,11 +10,19 @@ class ResponseHandler<T> {
   });
 }
 
+class RequestParams {
+  final Map<String, dynamic>? body;
+
+  RequestParams({this.body});
+}
+
 enum StatusHandler {
   ok,
   internalServerError,
+  created,
+  badRequest,
 }
 
 abstract class Handler {
-  Future<ResponseHandler> call();
+  Future<ResponseHandler> call(RequestParams requestParams);
 }

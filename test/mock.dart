@@ -7,6 +7,13 @@ class MockGetClientsUseCase extends Mock implements GetClientsUseCase {}
 
 class MockGetClientsGateway extends Mock implements GetClientsGateway {}
 
+class MockAddClientUseCase extends Mock implements AddClientUseCase {}
+
+class MockAddClientGateway extends Mock implements AddClientGateway {}
+
+class MockGetClientByEmailGateway extends Mock
+    implements GetClientByEmailGateway {}
+
 class MockConnection extends Mock implements Connection {}
 
 final clientMock = Client(id: 1, name: 'name', email: 'email', phone: 'phone');

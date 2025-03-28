@@ -6,7 +6,7 @@ class GetClientsHandler implements Handler {
   GetClientsHandler({required this.getClientsUseCase});
 
   @override
-  Future<ResponseHandler> call() async {
+  Future<ResponseHandler> call(RequestParams requestParams) async {
     try {
       final clients = await getClientsUseCase();
       return ResponseHandler<List<ClientOutputDTO>>(
