@@ -2,10 +2,12 @@ library infra;
 
 import 'package:api_clients/app/data/data.dart';
 import 'package:api_clients/app/domain/domain.dart';
+import 'package:postgres/postgres.dart';
 
 part './dao/clients/get_clients_dao.dart';
 part './connection/connection.dart';
 part './connection/fake/fake_db.dart';
+part './connection/postgres/postgres.dart';
 
 class ClientDB {
   ClientDB._();

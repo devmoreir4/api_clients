@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres
+    container_name: api_clients_postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5432:5432
+    volumes:
+      - ./migrations/0001_create_table_clients.sql:/docker-entrypoint-initdb.d/0001_create_table_clients.sql
