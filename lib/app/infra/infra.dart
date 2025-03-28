@@ -5,6 +5,7 @@ import 'package:api_clients/app/domain/domain.dart';
 
 part './dao/clients/get_clients_dao.dart';
 part './connection/connection.dart';
+part './connection/fake/fake_db.dart';
 
 class ClientDB {
   ClientDB._();

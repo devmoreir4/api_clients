@@ -22,7 +22,7 @@ class ShelfAdapter {
 
         switch (responseHandler.status) {
           case StatusHandler.ok:
-            return Response.ok(responseHandler.body);
+            return ResponseJSON.ok(responseHandler.body);
           default:
             return Response.internalServerError();
         }
