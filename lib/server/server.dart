@@ -12,7 +12,7 @@ class Server {
     final router = Router();
 
     // Configure a pipeline that logs requests.
-    final handler = Pipeline().addMiddleware(logRequests()).addHandler(router);
+    final handler = Pipeline().addMiddleware(logRequests()).addHandler(router.call);
 
     // For running in containers, we respect the PORT environment variable.
     final port = int.parse(Platform.environment['PORT'] ?? '8080');
