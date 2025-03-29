@@ -16,11 +16,18 @@ class ShelfAdapter {
     final handlers = controller.handlers;
 
     for (final myHandler in handlers.entries) {
-      final verb = myHandler.key;
-      router.add(verb, route, (Request request) async {
+      final verbAndPath = myHandler.key.split(' ');
+      final verb = verbAndPath[0];
+      final path = verbAndPath.length > 1
+          ? verbAndPath[1]
+              .replaceAllMapped('{', (match) => '<')
+              .replaceAllMapped('}', (match) => '>')
+          : '';
+      router.add(verb, route + path, (Request request) async {
         final payload = await request.readAsString();
         final responseHandler = await myHandler.value(RequestParams(
           body: payload.isNotEmpty ? jsonDecode(payload) : null,
+          path: request.params,
         ));
 
         switch (responseHandler.status) {
@@ -30,6 +37,10 @@ class ShelfAdapter {
             return ResponseJSON.created(responseHandler.body);
           case StatusHandler.badRequest:
             return ResponseJSON.badRequest(responseHandler.body);
+          case StatusHandler.notFound:
+            return ResponseJSON.notFound(responseHandler.body);
+          case StatusHandler.noContent:
+            return ResponseJSON.noContent();
           default:
             return Response.internalServerError();
         }

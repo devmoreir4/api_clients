@@ -9,6 +9,11 @@ class ResponseJSON extends Response {
   ResponseJSON.created(dynamic body)
       : super(201, body: jsonEncode(body.toMap()));
 
+  ResponseJSON.notFound(dynamic body)
+      : super.notFound(jsonEncode(body.toMap()));
+
   ResponseJSON.badRequest(dynamic body)
       : super.badRequest(body: jsonEncode(body.toMap()));
+
+  ResponseJSON.noContent() : super(204);
 }
