@@ -12,8 +12,9 @@ class ResponseHandler<T> {
 
 class RequestParams {
   final Map<String, dynamic>? body;
+  final Map<String, dynamic>? path;
 
-  RequestParams({this.body});
+  RequestParams({this.body, this.path});
 }
 
 enum StatusHandler {
@@ -21,6 +22,8 @@ enum StatusHandler {
   internalServerError,
   created,
   badRequest,
+  noContent,
+  notFound,
 }
 
 abstract class Handler {
