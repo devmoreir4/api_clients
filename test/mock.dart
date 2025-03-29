@@ -18,6 +18,12 @@ class MockDeleteClientUseCase extends Mock implements DeleteClientUseCase {}
 
 class MockGetClientByIdUseCase extends Mock implements GetClientByIdUseCase {}
 
+class MockGetClientByIdGateway extends Mock implements GetClientByIdGateway {}
+
+class MockDeleteClientGateway extends Mock implements DeleteClientGateway {}
+
+class MockUpdateClientGateway extends Mock implements UpdateClientGateway {}
+
 class MockGetClientByEmailGateway extends Mock
     implements GetClientByEmailGateway {}
 
