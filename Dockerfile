@@ -16,6 +16,13 @@ FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
 
+# environment
+ENV DB_HOST="db"
+ENV DB_PORT="5432"
+ENV DB_NAME="postgres"
+ENV DB_USERNAME="postgres"
+ENV DB_PASSWORD="docker"
+ENV PORT="8080"
+
 # Start server.
-EXPOSE 8080
 CMD ["/app/bin/server"]
