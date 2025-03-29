@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:api_clients/app/api/api.dart';
+import 'package:api_clients/config/config.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
@@ -22,7 +23,7 @@ class Server {
     final handler = Pipeline().addMiddleware(logRequests()).addMiddleware(contentJSON()).addHandler(router.call);
 
     // For running in containers, we respect the PORT environment variable.
-    final port = int.parse(Platform.environment['PORT'] ?? '8080');
+    final port = int.parse(ConfigEnv.serverPort);
     return await serve(handler, ip, port);
   }
 }

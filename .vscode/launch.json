@@ -6,10 +6,11 @@
     "configurations": [
 
         {
-          "name": "api-clients",
+          "name": "api_clients",
           "request": "launch",
           "type": "dart",
-          "flutterMode": "debug"
+          // "flutterMode": "debug",
+          "program": "bin/server.dart"
         }
     ]
 }

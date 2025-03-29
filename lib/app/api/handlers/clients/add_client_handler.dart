@@ -18,7 +18,6 @@ class AddClientHandler implements Handler {
           status: StatusHandler.badRequest,
           body: MessageError('A client with this email already exists'));
     } catch (e) {
-      print(e.toString());
       return ResponseHandler(status: StatusHandler.internalServerError);
     }
   }

@@ -13,11 +13,11 @@ class PostgreSQL implements Connection {
     Map<String, dynamic> params = const {},
   ]) async {
     _connection = PostgreSQLConnection(
-      'localhost',
-      5432,
-      'postgres',
-      username: 'postgres',
-      password: 'docker',
+      ConfigEnv.dbHost,
+      int.parse(ConfigEnv.dbPort),
+      ConfigEnv.dbName,
+      username: ConfigEnv.dbUsername,
+      password: ConfigEnv.dbPassword,
     );
 
     await _connection!.open();

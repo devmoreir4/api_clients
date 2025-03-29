@@ -2,6 +2,7 @@ library infra;
 
 import 'package:api_clients/app/data/data.dart';
 import 'package:api_clients/app/domain/domain.dart';
+import 'package:api_clients/config/config.dart';
 
 import 'package:postgres/postgres.dart';
 
