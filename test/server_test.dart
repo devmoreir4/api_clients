@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:api_clients/app/infra/infra.dart';
 import 'package:api_clients/config/config.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
@@ -20,7 +21,9 @@ void main() {
     await p.stdout.first;
 
     // reset database
+    final connection = PostgreSQL();
     await connection.query("DELETE FROM clients");
+    await connection.close();
   });
 
   tearDown(() => p.kill());
