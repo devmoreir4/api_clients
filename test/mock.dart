@@ -1,6 +1,7 @@
 import 'package:api_clients/app/data/data.dart';
 import 'package:api_clients/app/domain/domain.dart';
 import 'package:api_clients/app/infra/infra.dart';
+
 import 'package:mocktail/mocktail.dart';
 
 class MockGetClientsUseCase extends Mock implements GetClientsUseCase {}

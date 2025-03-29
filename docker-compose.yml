@@ -9,3 +9,5 @@ services:
       - 5432:5432
     volumes:
       - ./migrations/0001_create_table_clients.sql:/docker-entrypoint-initdb.d/0001_create_table_clients.sql
+      - ./migrations/0002_add_primary_key_id.sql:/docker-entrypoint-initdb.d/0002_add_primary_key_id.sql
+      - ./migrations/0003_create_index_email.sql:/docker-entrypoint-initdb.d/0003_create_index_email.sql
